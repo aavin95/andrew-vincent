@@ -1,113 +1,248 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  max-width: 48rem; /* Equivalent to max-w-3xl */
+  margin: 0 auto;
+  padding: 3rem 1.5rem; /* Equivalent to px-6 py-12 */
+  font-family: 'Arial', sans-serif;
+  color: #1a202c; /* Equivalent to text-gray-900 */
+`;
+
+const Header = styled.header`
+  text-align: center;
+  margin-bottom: 4rem; /* Equivalent to mb-16 */
+`;
+
+const Title = styled.h1`
+  font-size: 3rem; /* Equivalent to text-5xl */
+  font-weight: 800; /* Equivalent to font-extrabold */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+  color: #667eea; /* Equivalent to text-gray-800 */
+
+  @media (min-width: 640px) {
+    font-size: 4.5rem; /* Equivalent to sm:text-6xl */
+  }
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  font-weight: 500; /* Equivalent to font-medium */
+  color: #718096; /* Equivalent to text-gray-600 */
+
+  @media (min-width: 640px) {
+    font-size: 1.5rem; /* Equivalent to sm:text-2xl */
+  }
+`;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* Equivalent to gap-16 */
+`;
+
+const Section = styled.section`
+  space-y: 1.5rem; /* Equivalent to space-y-6 */
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.5rem; /* Equivalent to text-4xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: #4a5568; /* Equivalent to text-gray-700 */
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  @media (min-width: 640px) {
+    font-size: 3rem; /* Equivalent to sm:text-5xl */
+  }
+`;
+
+
+const ProjectTitle = styled.h3`
+  font-size: 1.5rem; /* Equivalent to text-2xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: #2d3748; /* Equivalent to text-gray-800 */
+  margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+`;
+
+const ProjectSubTitle = styled.h4`
+  font-size: 1.15rem; /* Equivalent to text-xl */
+  font-weight: 500; /* Equivalent to font-medium */
+  color: #4a5568; /* Equivalent to text-gray-700 */
+  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Equivalent to gap-8 */
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr); /* Equivalent to sm:grid-cols-2 */
+  }
+`;
+
+const Paragraph = styled.p`
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease, padding-top 0.3s ease;
+  line-height: 1.5;
+  margin-top: 1rem;
+  color: #718096; /* Equivalent to text-gray-600 */
+`;
+
+
+const ProjectCard = styled.div`
+  border: 1px solid #e2e8f0; /* Equivalent to border-gray-200 */
+  border-radius: 0.75rem; /* Equivalent to rounded-lg */
+  padding: 1.5rem; /* Equivalent to p-6 */
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateZ(0); /* Prevent potential box-shadow bleed */
+  overflow: auto; 
+
+  &:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* Equivalent to hover:shadow-lg */
+    transform: scale(1.05); /* Equivalent to hover:scale-105 */
+  }
+
+  &:hover ${Paragraph} {
+    opacity: 1;
+    max-height: 200px; /* Adjust this value based on your content */
+    padding-top: 0.5rem;
+    overflow: auto;
+  }
+`;
+
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+
+  ${ProjectCard}:hover & {
+    transform: translateY(0); /* Ensure buttons are revealed on hover */
+  }
+`;
+
+
+const Button = styled.a`
+  flex: 1;
+  padding: 0.5rem 1rem;
+  background-color: #3182ce; /* Equivalent to bg-blue-600 */
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #2b6cb0; /* Equivalent to hover:bg-blue-800 */
+  }
+
+  @media (max-width: 640px) {
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+    font-size: 0.875rem; /* Smaller text size on mobile */
+  }
+`;
+
+const ContactLink = styled.a`
+  color: #3182ce; /* Equivalent to text-blue-600 */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #2b6cb0; /* Equivalent to hover:text-blue-800 */
+  }
+`;
+
+const CardContainer = styled.div`
+  position: relative;
+`;
+
+
 
 export default function Home() {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null; // Prevent rendering until mounted
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Container>
+      <Header>
+        <Title>Andrew Vincent</Title>
+        <Subtitle>Software & Web Developer</Subtitle>
+      </Header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Main>
+        <Section>
+          <SectionTitle>About Me</SectionTitle>
+          <Paragraph>
+            I&apos;m a passionate developer focused on writing usable, efficient, and scalable code.
+            I enjoy balancing functionality and usability to make the best possible user experience.
+            I graduated from the University of Michigan with a degree in Computer Science in the spring of 2024.
+            I&apos;m currently looking for a full-time position in software or web development.
+            Until then, I&apos;m enjoying working on personal projects and learning new technologies!
+          </Paragraph>
+        </Section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <Section>
+          <SectionTitle>Projects</SectionTitle>
+          <ProjectGrid>
+            <CardContainer>
+              <ProjectCard>
+                <ProjectTitle>Goodreads Book Selector</ProjectTitle>
+                <ProjectSubTitle>
+                  Helps users find and pick books that are on their to-read list
+                </ProjectSubTitle>
+                <Paragraph>
+                  This project came about because I was trying to filter my to-read list by genre, but Goodreads doesn&apos;t have that feature.
+                  So, I decided to make it myself! I used the OpenLibrary API to get each book&apos;s genre in a user&apos;s to-read list.
+                  Then, I created a filter to allow users to select which genres they want to see.
+                  This was my first time spending so much time on the design and user experience of an app, and I learned so much.
+                </Paragraph>
+                <ButtonsContainer>
+                  <Button href="https://github.com/aavin95/goodreads-book-selector" target="_blank" rel="noopener noreferrer">The Code</Button>
+                  <Button href="https://goodreads-book-selector.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                </ButtonsContainer>
+              </ProjectCard>
+            </CardContainer>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <CardContainer>
+              <ProjectCard>
+                <ProjectTitle>This Website</ProjectTitle>
+                <ProjectSubTitle>A personal website to showcase my projects and skills</ProjectSubTitle>
+                <ButtonsContainer>
+                  <Button href="" target="_blank" rel="noopener noreferrer">GitHub</Button>
+                  <Button href="" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                </ButtonsContainer>
+              </ProjectCard>
+            </CardContainer>
+            {/* Add more projects as needed */}
+          </ProjectGrid>
+        </Section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Section>
+          <SectionTitle>Contact</SectionTitle>
+          <Paragraph>
+            Feel free to reach out to me at{" "}
+            <ContactLink href="mailto:aavin@umich.edu">
+              aavin@umich.edu
+            </ContactLink>
+            .
+          </Paragraph>
+        </Section>
+      </Main>
+    </Container>
   );
 }
