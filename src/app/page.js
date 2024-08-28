@@ -164,6 +164,16 @@ const CardContainer = styled.div`
   position: relative;
 `;
 
+const BodyParagraph = styled.p`
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+  line-height: 1.5;
+  margin-top: 1rem;
+  color: #718096; /* Equivalent to text-gray-600 */
+  font-size: 1.15rem;
+`;
+
 
 
 export default function Home() {
@@ -187,13 +197,13 @@ export default function Home() {
       <Main>
         <Section>
           <SectionTitle>About Me</SectionTitle>
-          <Paragraph>
+          <BodyParagraph>
             I&apos;m a passionate developer focused on writing usable, efficient, and scalable code.
             I enjoy balancing functionality and usability to make the best possible user experience.
             I graduated from the University of Michigan with a degree in Computer Science in the spring of 2024.
             I&apos;m currently looking for a full-time position in software or web development.
             Until then, I&apos;m enjoying working on personal projects and learning new technologies!
-          </Paragraph>
+          </BodyParagraph>
         </Section>
 
         <Section>
@@ -234,13 +244,13 @@ export default function Home() {
 
         <Section>
           <SectionTitle>Contact</SectionTitle>
-          <Paragraph>
+          <BodyParagraph>
             Feel free to reach out to me at{" "}
             <ContactLink href="mailto:aavin@umich.edu">
               aavin@umich.edu
             </ContactLink>
             .
-          </Paragraph>
+          </BodyParagraph>
         </Section>
       </Main>
     </Container>
