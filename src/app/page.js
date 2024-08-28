@@ -223,8 +223,8 @@ export default function Home() {
                 <ProjectTitle>This Website</ProjectTitle>
                 <ProjectSubTitle>A personal website to showcase my projects and skills</ProjectSubTitle>
                 <ButtonsContainer>
-                  <Button href="" target="_blank" rel="noopener noreferrer">GitHub</Button>
-                  <Button href="" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                  <Button href="https://github.com/aavin95/andrew-vincent" target="_blank" rel="noopener noreferrer">GitHub</Button>
+                  <Button href="https://andrew-vincent.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site</Button>
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
