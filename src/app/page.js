@@ -215,7 +215,7 @@ export default function Home() {
           <ProjectGrid>
             <CardContainer>
               <ProjectCard>
-                <ProjectTitle>Goodreads Book Selector</ProjectTitle>
+                <ProjectTitle>📚 Goodreads Book Selector</ProjectTitle>
                 <ProjectSubTitle>
                   Helps users find and pick books that are on their to-read list
                 </ProjectSubTitle>
@@ -234,7 +234,7 @@ export default function Home() {
 
             <CardContainer>
               <ProjectCard>
-                <ProjectTitle>This Website</ProjectTitle>
+                <ProjectTitle>🤖 This Website</ProjectTitle>
                 <ProjectSubTitle>A personal website to showcase my projects and skills</ProjectSubTitle>
                 <ButtonsContainer>
                   <Button href="https://github.com/aavin95/andrew-vincent" target="_blank" rel="noopener noreferrer">GitHub</Button>
