@@ -192,6 +192,10 @@ export default function Home() {
       <Header>
         <Title>Andrew Vincent</Title>
         <Subtitle>Software & Web Developer</Subtitle>
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖 </text></svg>"
+        />
       </Header>
 
       <Main>
