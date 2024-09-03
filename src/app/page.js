@@ -237,8 +237,23 @@ export default function Home() {
                 <ProjectTitle>🤖 This Website</ProjectTitle>
                 <ProjectSubTitle>A personal website to showcase my projects and skills</ProjectSubTitle>
                 <ButtonsContainer>
-                  <Button href="https://github.com/aavin95/andrew-vincent" target="_blank" rel="noopener noreferrer">GitHub</Button>
+                  <Button href="https://github.com/aavin95/andrew-vincent" target="_blank" rel="noopener noreferrer">The Code</Button>
                   <Button href="https://andrew-vincent.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                </ButtonsContainer>
+              </ProjectCard>
+            </CardContainer>
+            <CardContainer>
+              <ProjectCard>
+                <ProjectTitle>🃏 Poker Website</ProjectTitle>
+                <ProjectSubTitle>A multiplayer real-time poker web app</ProjectSubTitle>
+                <Paragraph>
+                  This project is a modern multiplayer Texas Hold&apos;em poker app designed to deliver an engaging and real-time gaming experience.
+                  Built with the latest Next.js 14 features, including app-based routing, it seamlessly integrates with a Node.js and Socket.io
+                  backend for live game updates and player interactions. The app ensures smooth gameplay by managing different stages of the poker
+                  game, handling player actions, and automating game transitions.
+                </Paragraph>
+                <ButtonsContainer>
+                  <Button href="https://github.com/aavin95/smarter-poker" target="_blank" rel="noopener noreferrer">The Code</Button>
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
