@@ -174,7 +174,13 @@ const BodyParagraph = styled.p`
   font-size: 1.15rem;
 `;
 
-
+const ProfileImage = styled.img`
+  width: 150px; /* Adjust size as needed */
+  height: 150px; /* Adjust size as needed */
+  border-radius: 50%;
+  margin-bottom: 2rem; /* Equivalent to mb-8 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+`;
 
 export default function Home() {
   const [hasMounted, setHasMounted] = useState(false);
@@ -190,6 +196,7 @@ export default function Home() {
   return (
     <Container>
       <Header>
+        <ProfileImage src="/Andrew_Vincent.jpeg" alt="Andrew Vincent" />
         <Title>Andrew Vincent</Title>
         <Subtitle>Software & Web Developer</Subtitle>
         <link
@@ -222,7 +229,8 @@ export default function Home() {
                 <Paragraph>
                   This project came about because I was trying to filter my to-read list by genre, but Goodreads doesn&apos;t have that feature.
                   So, I decided to make it myself! I used the OpenLibrary API to get each book&apos;s genre in a user&apos;s to-read list.
-                  Then, I created a filter to allow users to select which genres they want to see.
+                  Then, I created a filter to allow users to select which genres they want to see. The Project is built with React and Next.js.
+                  It&apos;s deployed and has web analytics enabled through Vercel.
                   This was my first time spending so much time on the design and user experience of an app, and I learned so much.
                 </Paragraph>
                 <ButtonsContainer>
