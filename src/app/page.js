@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
 const Container = styled.div`
   max-width: 48rem; /* Equivalent to max-w-3xl */
   margin: 0 auto;
@@ -194,6 +193,7 @@ export default function Home() {
   }
 
   return (
+
     <Container>
       <Header>
         <ProfileImage src="/Andrew_Vincent.jpeg" alt="Andrew Vincent" />
@@ -204,7 +204,6 @@ export default function Home() {
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖 </text></svg>"
         />
       </Header>
-
       <Main>
         <Section>
           <SectionTitle>About Me</SectionTitle>
@@ -235,7 +234,7 @@ export default function Home() {
                 </Paragraph>
                 <ButtonsContainer>
                   <Button href="https://github.com/aavin95/goodreads-book-selector" target="_blank" rel="noopener noreferrer">The Code</Button>
-                  <Button href="https://goodreads-book-selector.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                  <Button href="https://goodreads-shelf-helper.andrewvincent.dev/" target="_blank" rel="noopener noreferrer">Live Site</Button>
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
@@ -246,7 +245,7 @@ export default function Home() {
                 <ProjectSubTitle>A personal website to showcase my projects and skills</ProjectSubTitle>
                 <ButtonsContainer>
                   <Button href="https://github.com/aavin95/andrew-vincent" target="_blank" rel="noopener noreferrer">The Code</Button>
-                  <Button href="https://andrew-vincent.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                  <Button href="https://www.andrewvincent.dev/" target="_blank" rel="noopener noreferrer">Live Site</Button>
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
@@ -262,6 +261,23 @@ export default function Home() {
                 </Paragraph>
                 <ButtonsContainer>
                   <Button href="https://github.com/aavin95/smarter-poker" target="_blank" rel="noopener noreferrer">The Code</Button>
+                </ButtonsContainer>
+              </ProjectCard>
+            </CardContainer>
+            <CardContainer>
+              <ProjectCard>
+                <ProjectTitle>📊 Polling Website</ProjectTitle>
+                <ProjectSubTitle>A website to create and share polls quickly</ProjectSubTitle>
+                <Paragraph>
+                  This project is a web app for creating and managing polls using Next.js, React, and styled-components.
+                  It stores poll data in AWS DynamoDB, accessed via the AWS SDK for JavaScript. Features include requiring names,
+                  multiple votes, and free response options. TypeScript ensures type safety, while Tailwind CSS provides styling.
+                  Build and deployment are handled with Node.js scripts and GitHub Actions, deploying to AWS. The app is responsive
+                  and user-friendly for seamless poll creation and participation.
+                </Paragraph>
+                <ButtonsContainer>
+                  <Button href="https://github.com/aavin95/quick_poll" target="_blank" rel="noopener noreferrer">The Code</Button>
+                  <Button href="https://quick-poll.andrewvincent.dev/" target="_blank" rel="noopener noreferrer">Live Site</Button>
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
