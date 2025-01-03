@@ -281,6 +281,23 @@ export default function Home() {
                 </ButtonsContainer>
               </ProjectCard>
             </CardContainer>
+            <CardContainer>
+              <ProjectCard>
+                <ProjectTitle>🎥 Video Audio Enhancer</ProjectTitle>
+                <ProjectSubTitle>A website to move background audio from videos</ProjectSubTitle>
+                <Paragraph>
+                  This project is a video audio enhancement web application built with Next.js,
+                  TypeScript, and Flask. It leverages Supabase for authentication, storage, and
+                  database management, while using DeepFilterNet for AI-powered audio processing.
+                  Features include secure file uploads, real-time processing status updates, and video playback with enhanced audio.
+                  The project follows a microservices architecture, with the frontend and backend services communicating via RESTful APIs, and includes comprehensive TypeScript types for enhanced code reliability.
+                </Paragraph>
+                <ButtonsContainer>
+                  <Button href="https://github.com/aavin95/hush" target="_blank" rel="noopener noreferrer">The Code</Button>
+                  <Button href="https://hush.andrewvincent.dev/" target="_blank" rel="noopener noreferrer">Live Site</Button>
+                </ButtonsContainer>
+              </ProjectCard>
+            </CardContainer>
             {/* Add more projects as needed */}
           </ProjectGrid>
         </Section>
