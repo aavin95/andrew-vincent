@@ -2,72 +2,72 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 const Container = styled.div`
-  max-width: 48rem; /* Equivalent to max-w-3xl */
+  max-width: 48rem;
   margin: 0 auto;
-  padding: 3rem 1.5rem; /* Equivalent to px-6 py-12 */
+  padding: 3rem 1.5rem;
   font-family: 'Arial', sans-serif;
-  color: #1a202c; /* Equivalent to text-gray-900 */
+  color: #1a202c;
 `;
 
 const Header = styled.header`
   text-align: center;
-  margin-bottom: 4rem; /* Equivalent to mb-16 */
+  margin-bottom: 4rem;
 `;
 
 const Title = styled.h1`
-  font-size: 3rem; /* Equivalent to text-5xl */
-  font-weight: 800; /* Equivalent to font-extrabold */
-  margin-bottom: 1rem; /* Equivalent to mb-4 */
-  color: #667eea; /* Equivalent to text-gray-800 */
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #667eea;
 
   @media (min-width: 640px) {
-    font-size: 4.5rem; /* Equivalent to sm:text-6xl */
+    font-size: 4.5rem;
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.25rem; /* Equivalent to text-xl */
-  font-weight: 500; /* Equivalent to font-medium */
-  color: #718096; /* Equivalent to text-gray-600 */
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #718096;
 
   @media (min-width: 640px) {
-    font-size: 1.5rem; /* Equivalent to sm:text-2xl */
+    font-size: 1.5rem;
   }
 `;
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* Equivalent to gap-16 */
+  gap: 4rem;
 `;
 
 const Section = styled.section`
-  space-y: 1.5rem; /* Equivalent to space-y-6 */
+  space-y: 1.5rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 1.5rem; /* Equivalent to text-4xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  color: #4a5568; /* Equivalent to text-gray-700 */
-  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
   @media (min-width: 640px) {
-    font-size: 3rem; /* Equivalent to sm:text-5xl */
+    font-size: 3rem;
   }
 `;
 
 
 const ProjectTitle = styled.h3`
-  font-size: 1.5rem; /* Equivalent to text-2xl */
-  font-weight: 600; /* Equivalent to font-semibold */
-  color: #2d3748; /* Equivalent to text-gray-800 */
-  margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
 `;
 
 const ProjectSubTitle = styled.h4`
-  font-size: 1.15rem; /* Equivalent to text-xl */
-  font-weight: 500; /* Equivalent to font-medium */
-  color: #4a5568; /* Equivalent to text-gray-700 */
-  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
 `;
 
 const ProjectGrid = styled.div`
@@ -76,7 +76,7 @@ const ProjectGrid = styled.div`
   gap: 2rem; /* Equivalent to gap-8 */
 
   @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr); /* Equivalent to sm:grid-cols-2 */
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -87,29 +87,29 @@ const Paragraph = styled.p`
   transition: opacity 0.3s ease, max-height 0.3s ease, padding-top 0.3s ease;
   line-height: 1.5;
   margin-top: 1rem;
-  color: #718096; /* Equivalent to text-gray-600 */
+  color: #718096;
 `;
 
 
 const ProjectCard = styled.div`
-  border: 1px solid #e2e8f0; /* Equivalent to border-gray-200 */
-  border-radius: 0.75rem; /* Equivalent to rounded-lg */
-  padding: 1.5rem; /* Equivalent to p-6 */
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: translateZ(0); /* Prevent potential box-shadow bleed */
+  transform: translateZ(0);
   overflow: auto; 
 
   &:hover {
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* Equivalent to hover:shadow-lg */
-    transform: scale(1.05); /* Equivalent to hover:scale-105 */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
   }
 
   &:hover ${Paragraph} {
     opacity: 1;
-    max-height: 200px; /* Adjust this value based on your content */
+    max-height: 200px;
     padding-top: 0.5rem;
     overflow: auto;
   }
@@ -124,7 +124,7 @@ const ButtonsContainer = styled.div`
   transition: transform 0.3s ease;
 
   ${ProjectCard}:hover & {
-    transform: translateY(0); /* Ensure buttons are revealed on hover */
+    transform: translateY(0);
   }
 `;
 
@@ -132,7 +132,7 @@ const ButtonsContainer = styled.div`
 const Button = styled.a`
   flex: 1;
   padding: 0.5rem 1rem;
-  background-color: #3182ce; /* Equivalent to bg-blue-600 */
+  background-color: #3182ce;
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -140,22 +140,22 @@ const Button = styled.a`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #2b6cb0; /* Equivalent to hover:bg-blue-800 */
+    background-color: #2b6cb0;
   }
 
   @media (max-width: 640px) {
-    padding: 0.5rem; /* Adjust padding for smaller screens */
-    font-size: 0.875rem; /* Smaller text size on mobile */
+    padding: 0.5rem;
+    font-size: 0.875rem;
   }
 `;
 
 const ContactLink = styled.a`
-  color: #3182ce; /* Equivalent to text-blue-600 */
+  color: #3182ce;
   text-decoration: underline;
   transition: color 0.2s ease;
 
   &:hover {
-    color: #2b6cb0; /* Equivalent to hover:text-blue-800 */
+    color: #2b6cb0;
   }
 `;
 
@@ -169,16 +169,16 @@ const BodyParagraph = styled.p`
   overflow: visible;
   line-height: 1.5;
   margin-top: 1rem;
-  color: #718096; /* Equivalent to text-gray-600 */
+  color: #718096;
   font-size: 1.15rem;
 `;
 
 const ProfileImage = styled.img`
-  width: 150px; /* Adjust size as needed */
-  height: 150px; /* Adjust size as needed */
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin-bottom: 2rem; /* Equivalent to mb-8 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export default function Home() {
