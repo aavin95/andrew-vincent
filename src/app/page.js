@@ -196,7 +196,7 @@ export default function Home() {
 
     <Container>
       <Header>
-        <ProfileImage src="/Andrew_Vincent.jpeg" alt="Andrew Vincent" />
+        <ProfileImage src="/Andrew_Vincent.webp" alt="Andrew Vincent" />
         <Title>Andrew Vincent</Title>
         <Subtitle>Software & Web Developer</Subtitle>
         <link
